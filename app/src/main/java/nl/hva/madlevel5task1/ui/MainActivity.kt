@@ -25,23 +25,19 @@ class MainActivity : AppCompatActivity() {
 
         navController = navHostFragment.navController
 
-        binding.fab.setOnClickListener {
-            navController.navigate(
-                R.id.action_notepadFragment_to_addNoteFragment
-            )
-        }
+
 
         fabToggler()
     }
 
     private fun fabToggler() {
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id in arrayOf(R.id.addNoteFragment)) {
-                binding.fab.hide()
-            } else {
-                binding.fab.show()
-            }
-        }
+//        navController.addOnDestinationChangedListener { _, destination, _ ->
+//            if (destination.id in arrayOf(R.id.addNoteFragment)) {
+//                binding.fab.hide()
+//            } else {
+//                binding.fab.show()
+//            }
+//        }
     }
 
 }

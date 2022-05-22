@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context="nl.hva.madlevel5task1.ui.BacklogFragment">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:contentDescription="@string/fab_button"
+        android:tint="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
     <TextView
         android:id="@+id/tvTitleNotepad"
         style="@style/TextAppearance.MaterialComponents.Headline3"

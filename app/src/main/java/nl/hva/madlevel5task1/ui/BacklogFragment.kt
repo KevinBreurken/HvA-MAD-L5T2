@@ -6,6 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import com.example.madlevel5task1.R
 import com.example.madlevel5task1.databinding.FragmentBacklogBinding
 
@@ -27,12 +31,16 @@ class BacklogFragment : Fragment() {
 
         _binding = FragmentBacklogBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.fabAdd.setOnClickListener {
+            view.findNavController().navigate(
+                R.id.action_notepadFragment_to_addNoteFragment
+            )
+        }
     }
 
 
