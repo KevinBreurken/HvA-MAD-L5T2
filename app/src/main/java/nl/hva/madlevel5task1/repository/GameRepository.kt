@@ -11,14 +11,14 @@ class GameRepository(context: Context) {
 
     init {
         val database = GameRoomDatabase.getDatabase(context)
-        gameDao = database!!.noteDao()
+        gameDao = database!!.gameDao()
     }
 
-    fun getNotepad(): LiveData<Game?> {
+    fun getGame(): LiveData<Game?> {
         return gameDao.getGame()
     }
 
-    suspend fun updateNotepad(note: Game) {
+    suspend fun updateGame(note: Game) {
         gameDao.updateGame(note)
     }
 }

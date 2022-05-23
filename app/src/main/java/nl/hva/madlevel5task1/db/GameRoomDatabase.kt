@@ -17,10 +17,10 @@ import java.util.*
 @TypeConverters(Converters::class)
 abstract class GameRoomDatabase : RoomDatabase() {
 
-    abstract fun noteDao(): GameDao
+    abstract fun gameDao(): GameDao
 
     companion object {
-        private const val DATABASE_NAME = "NOTEPAD_DATABASE"
+        private const val DATABASE_NAME = "GAME_DATABASE"
 
         @Volatile
         private var INSTANCE: GameRoomDatabase? = null
@@ -39,7 +39,7 @@ abstract class GameRoomDatabase : RoomDatabase() {
                                     super.onCreate(db)
                                     INSTANCE?.let { database ->
                                         CoroutineScope(Dispatchers.IO).launch {
-                                            database.noteDao().insertGame(Game("Title", Date(), ""))
+                                            database.gameDao().insertGame(Game("Title", Date(), ""))
                                         }
                                     }
                                 }
