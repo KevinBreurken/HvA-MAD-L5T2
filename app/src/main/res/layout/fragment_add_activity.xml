@@ -30,6 +30,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/titleEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/title_text_input"
@@ -48,6 +49,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tilNoteTitle">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/platformEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/note_text_input" />

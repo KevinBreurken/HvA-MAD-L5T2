@@ -13,8 +13,8 @@ interface GameDao {
     @Insert
     suspend fun insertGame(note: Game)
 
-    @Query("SELECT * FROM gameTable LIMIT 1")
-    fun getGame(): LiveData<Game?>
+    @Query("SELECT * FROM gameTable")
+    fun getGames(): LiveData<List<Game?>>
 
     @Update
     suspend fun updateGame(note: Game)

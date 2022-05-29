@@ -19,15 +19,24 @@
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/listview"
+        android:id="@+id/listviews"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:checkable="true"
         android:clickable="true"
+        android:contentDescription="@string/action_settings"
         android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Colored Material \nCard View"
+            android:textSize="40sp"
+            android:layout_gravity="center"
+            />
+    </com.google.android.material.card.MaterialCardView>
     
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,12 +12,14 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.madlevel5task1.R
 import com.example.madlevel5task1.databinding.FragmentBacklogBinding
+import nl.hva.madlevel5task1.vm.GameViewModel
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class BacklogFragment : Fragment() {
 
+    private val viewModel: GameViewModel by viewModels()
     private var _binding: FragmentBacklogBinding? = null
 
     // This property is only valid between onCreateView and
@@ -41,6 +43,7 @@ class BacklogFragment : Fragment() {
                 R.id.action_notepadFragment_to_addNoteFragment
             )
         }
+
     }
 
 
