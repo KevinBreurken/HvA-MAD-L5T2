@@ -11,6 +11,7 @@ import androidx.navigation.findNavController
 import com.example.madlevel5task1.R
 import com.example.madlevel5task1.databinding.FragmentAddActivityBinding
 import com.google.android.material.datepicker.MaterialDatePicker.Builder.datePicker
+import nl.hva.madlevel5task1.model.Game
 import nl.hva.madlevel5task1.vm.GameViewModel
 import java.time.LocalDate
 import java.util.*
@@ -66,13 +67,16 @@ class AddActivityFragment : Fragment() {
         val calendar = Calendar.getInstance()
         calendar[year, month] = day
 
-        viewModel.updateGame(
-            binding.tilNoteTitle.editText?.text.toString(),
-            binding.tilPlatformText.editText?.text.toString(), calendar.time
+        viewModel.insertGame(
+            Game(
+                binding.tilNoteTitle.editText?.text.toString(),
+                calendar.time,
+                binding.tilPlatformText.editText?.text.toString()
+            )
         )
 
         //Return to previous view
-        view?.findNavController()?.navigate(R.id.action_notepadFragment_to_addNoteFragment)
+        view?.findNavController()?.popBackStack();
     }
 
     override fun onDestroyView() {

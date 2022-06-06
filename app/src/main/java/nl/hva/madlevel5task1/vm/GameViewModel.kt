@@ -18,50 +18,23 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     private val gameRepository = GameRepository(application.applicationContext)
     private val mainScope = CoroutineScope(Dispatchers.Main)
 
-    var games = gameRepository.getGames()
-    val error = MutableLiveData<String>()
-    val success = MutableLiveData<Boolean>()
+    var games: LiveData<List<Game>> = gameRepository.getGames();
 
-    fun getUsers(): LiveData<List<Game?>> {
-        if (games == null) {
-            games = gameRepository.getGames()
-        }
-        return games;
-    }
-
-    fun updateGame(title: String, platform: String, releaseDate: Date) {
-
-        //if there is an existing note, take that id to update it instead of adding a new one
-//        val newGame = gameRepository.getGameById();
-        val newGame = Game(
-            title = title,
-            releaseDate = releaseDate,
-            platform = platform,
-            id = 1
-        )
-
-        if(isGameValid(newGame)) {
-            mainScope.launch {
-                withContext(Dispatchers.IO) {
-                    gameRepository.updateGame(newGame)
-                }
-                success.value = true
-            }
+    fun insertGame(game: Game) {
+        mainScope.launch {
+            gameRepository.insertGame(game)
         }
     }
 
-    private fun isGameValid(game: Game): Boolean {
-        return when {
-            game.title.isBlank() -> {
-                error.value = "Title must not be empty"
-                false
-            }
-            game.platform.isBlank() -> {
-                error.value = "Platform must not be empty"
-                false
-            }
-            else -> true
+    fun deleteGame(game: Game) {
+        mainScope.launch {
+            gameRepository.deleteGame(game)
         }
     }
 
+    fun deleteGames() {
+        mainScope.launch {
+            gameRepository.deleteGames()
+        }
+    }
 }

@@ -13,10 +13,16 @@ interface GameDao {
     @Insert
     suspend fun insertGame(note: Game)
 
-    @Query("SELECT * FROM gameTable")
-    fun getGames(): LiveData<List<Game?>>
+    @Query("SELECT * FROM gameTable ORDER BY releaseDate DESC")
+    fun getGames(): LiveData<List<Game>>
 
     @Update
     suspend fun updateGame(note: Game)
+
+    @Update
+    suspend fun deleteGame(note: Game)
+
+    @Query("DELETE FROM gameTable")
+    suspend fun deleteGames()
 
 }
