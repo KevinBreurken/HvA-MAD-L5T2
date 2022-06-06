@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.madlevel5task1.R
 import com.example.madlevel5task1.databinding.ItemGameBinding
 import nl.hva.madlevel5task1.model.Game
+import java.text.DateFormat
 
 class GameAdapter(private val movies: List<Game>) :
     RecyclerView.Adapter<GameAdapter.ViewHolder>() {
@@ -31,7 +32,7 @@ class GameAdapter(private val movies: List<Game>) :
 
         fun bind(movieItem: Game) {
             binding.gameTitle.text = movieItem.title
-            binding.releaseDate.text = movieItem.releaseDate.toString()
+            binding.releaseDate.text = DateFormat.getDateInstance().format(movieItem.releaseDate)
             binding.platform.text = movieItem.platform
         }
     }

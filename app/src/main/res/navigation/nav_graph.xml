@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/notePadFragment"
         android:name="nl.hva.madlevel5task1.ui.BacklogFragment"
-        android:label="fragment_notepad"
+        android:label="Gaming Backlog"
         tools:layout="@layout/fragment_backlog">
         <action
             android:id="@+id/action_notepadFragment_to_addNoteFragment"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/addNoteFragment"
         android:name="nl.hva.madlevel5task1.ui.AddActivityFragment"
-        android:label="fragment_add_note"
+        android:label="Add Game"
         tools:layout="@layout/fragment_add_activity" />
 
 </navigation>
