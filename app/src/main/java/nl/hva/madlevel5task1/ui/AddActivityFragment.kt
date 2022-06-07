@@ -66,6 +66,7 @@ class AddActivityFragment : Fragment() {
 
         val calendar = Calendar.getInstance()
         calendar[year, month] = day
+        calendar.set(Calendar.YEAR, year)
 
         viewModel.insertGame(
             Game(
